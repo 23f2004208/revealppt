@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 2025 Earnings Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/monokai.css">
+    <style>
+        .reveal .email {
+            font-size: 0.6em;
+            color: #42affa;
+            margin-top: 20px;
+        }
+        .reveal .formula {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .reveal pre code {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Title Slide -->
+            <section>
+                <h1>Q4 2025 Earnings Report</h1>
+                <h3>Financial Performance & Strategic Outlook</h3>
+                <p class="email">Prepared by: 23f2004208@ds.study.iitm.ac.in</p>
+                <aside class="notes">
+                    Welcome everyone to our Q4 2025 earnings presentation. Today we'll review our financial performance, 
+                    key metrics, and strategic direction for the upcoming year. This presentation includes interactive 
+                    elements - feel free to engage with the data visualizations.
+                </aside>
+            </section>
+
+            <!-- Executive Summary - Markdown Slide -->
+            <section data-markdown>
+                <textarea data-template>
+                    ## Executive Summary
+                    
+                    Our **Q4 2025** performance demonstrates strong growth across all key metrics:
+                    
+                    - Revenue: **$2.4B** (+18% YoY)
+                    - Net Income: **$485M** (+22% YoY)
+                    - EPS: **$3.25** (+20% YoY)
+                    - Customer Growth: **+2.3M** new accounts
+                    
+                    > "This quarter represents our strongest performance in company history"
+                    
+                    ---
+                    
+                    Note: All figures are in USD and represent continuing operations.
+                </textarea>
+                <aside class="notes">
+                    This slide presents our executive summary. Notice the significant year-over-year growth 
+                    in all categories. The customer growth figure of 2.3 million new accounts is particularly 
+                    noteworthy as it represents a 15% increase over Q3.
+                </aside>
+            </section>
+
+            <!-- Financial Metrics with Fragments -->
+            <section>
+                <h2>Key Financial Metrics</h2>
+                <div style="text-align: left; margin: 40px;">
+                    <p class="fragment fade-in-then-semi-out">
+                        📈 <strong>Total Revenue:</strong> $2.4 Billion
+                    </p>
+                    <p class="fragment fade-in-then-semi-out">
+                        💰 <strong>Operating Income:</strong> $680 Million
+                    </p>
+                    <p class="fragment fade-in-then-semi-out">
+                        📊 <strong>Operating Margin:</strong> 28.3%
+                    </p>
+                    <p class="fragment fade-in-then-semi-out">
+                        💵 <strong>Free Cash Flow:</strong> $525 Million
+                    </p>
+                    <p class="fragment highlight-green">
+                        ✅ <strong>ROE:</strong> 19.5% (Above industry average of 15%)
+                    </p>
+                </div>
+                <aside class="notes">
+                    Walk through each metric sequentially. Pause on the ROE figure to emphasize that we're 
+                    outperforming the industry average by 4.5 percentage points. This demonstrates our 
+                    operational efficiency and strong capital allocation strategy.
+                </aside>
+            </section>
+
+            <!-- Code Sample: Risk Calculation -->
+            <section>
+                <h2>Risk Analysis Model</h2>
+                <p>Our proprietary VaR calculation implementation:</p>
+                <pre><code class="language-python" data-trim data-line-numbers="1-3|5-8|10-12">
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+def calculate_var(returns, confidence_level=0.95, horizon=1):
+    """
+    Calculate Value at Risk using historical simulation method
+    
+    Args:
+        returns: Array of historical returns
+        confidence_level: Confidence level for VaR (default 95%)
+        horizon: Time horizon in days
+    
+    Returns:
+        VaR: Value at Risk in percentage terms
+    """
+    # Sort returns in ascending order
+    sorted_returns = np.sort(returns)
+    
+    # Find the index corresponding to the confidence level
+    index = int((1 - confidence_level) * len(sorted_returns))
+    
+    # Calculate VaR
+    var = abs(sorted_returns[index]) * np.sqrt(horizon)
+    
+    return var * 100  # Return as percentage
+
+# Example usage
+portfolio_returns = np.array([-0.02, 0.01, -0.03, 0.02, 0.015])
+var_95 = calculate_var(portfolio_returns, 0.95)
+print(f"95% VaR: {var_95:.2f}%")
+                </code></pre>
+                <aside class="notes">
+                    This slide demonstrates our risk management framework. The code shows our Value at Risk 
+                    calculation method. Highlight the use of historical simulation, which provides more accurate 
+                    risk estimates than parametric methods during volatile market conditions.
+                </aside>
+            </section>
+
+            <!-- Mathematical Formulas -->
+            <section>
+                <h2>Financial Formulas</h2>
+                <div class="formula">
+                    <h3>Sharpe Ratio</h3>
+                    <p>Measures risk-adjusted return:</p>
+                    <p>$$S = \frac{R_p - R_f}{\sigma_p}$$</p>
+                    <p style="font-size: 0.7em;">
+                        Where: \(R_p\) = Portfolio return, \(R_f\) = Risk-free rate, \(\sigma_p\) = Portfolio std dev
+                    </p>
+                </div>
+                <div class="formula fragment">
+                    <h3>Compound Annual Growth Rate (CAGR)</h3>
+                    <p>$$CAGR = \left(\frac{V_f}{V_i}\right)^{\frac{1}{n}} - 1$$</p>
+                    <p style="font-size: 0.7em;">
+                        Our 5-year CAGR: <strong>16.3%</strong>
+                    </p>
+                </div>
+                <aside class="notes">
+                    These formulas are fundamental to our performance evaluation. Our Sharpe ratio of 1.8 
+                    indicates we're generating strong risk-adjusted returns. The CAGR of 16.3% over 5 years 
+                    significantly outpaces the S&P 500's 12.1% over the same period.
+                </aside>
+            </section>
+
+            <!-- SQL Query Example -->
+            <section>
+                <h2>Data Analytics Pipeline</h2>
+                <p>Customer segmentation query:</p>
+                <pre><code class="language-sql" data-trim>
+-- Customer Lifetime Value Analysis
+SELECT 
+    customer_segment,
+    COUNT(DISTINCT customer_id) as customer_count,
+    AVG(total_revenue) as avg_revenue,
+    AVG(account_tenure_months) as avg_tenure,
+    SUM(total_revenue) / COUNT(DISTINCT customer_id) as clv
+FROM 
+    customer_analytics
+WHERE 
+    account_status = 'active'
+    AND signup_date >= '2020-01-01'
+GROUP BY 
+    customer_segment
+HAVING 
+    COUNT(DISTINCT customer_id) > 1000
+ORDER BY 
+    clv DESC;
+                </code></pre>
+                <aside class="notes">
+                    This query powers our customer segmentation dashboard. It helps us identify high-value 
+                    customer segments and optimize our marketing spend. Notice we're focusing on active 
+                    customers since 2020 to ensure data relevance.
+                </aside>
+            </section>
+
+            <!-- Investment Strategy with Fragments -->
+            <section>
+                <h2>2026 Investment Strategy</h2>
+                <div style="text-align: left; margin: 40px;">
+                    <h3 class="fragment">Technology Modernization</h3>
+                    <ul>
+                        <li class="fragment">Cloud infrastructure migration: <strong>$150M</strong></li>
+                        <li class="fragment">AI/ML capabilities: <strong>$80M</strong></li>
+                        <li class="fragment">Cybersecurity enhancement: <strong>$45M</strong></li>
+                    </ul>
+                    
+                    <h3 class="fragment" style="margin-top: 30px;">Market Expansion</h3>
+                    <ul>
+                        <li class="fragment">Asia-Pacific operations: <strong>$200M</strong></li>
+                        <li class="fragment">Product development: <strong>$120M</strong></li>
+                    </ul>
+                    
+                    <p class="fragment" style="margin-top: 30px; color: #42affa;">
+                        <strong>Total Investment:</strong> $595M
+                    </p>
+                </div>
+                <aside class="notes">
+                    Our 2026 investment strategy focuses on two key areas: technology modernization and 
+                    market expansion. The cloud migration will reduce operating costs by 25% over 3 years. 
+                    The Asia-Pacific expansion targets a market with 40% higher growth rates than our 
+                    current markets.
+                </aside>
+            </section>
+
+            <!-- JavaScript Code Example -->
+            <section>
+                <h2>Real-time Dashboard</h2>
+                <p>Portfolio monitoring system:</p>
+                <pre><code class="language-javascript" data-trim data-line-numbers>
+class PortfolioMonitor {
+    constructor(apiEndpoint, refreshInterval = 5000) {
+        this.apiEndpoint = apiEndpoint;
+        this.refreshInterval = refreshInterval;
+        this.positions = new Map();
+    }
+
+    async fetchPositions() {
+        try {
+            const response = await fetch(`${this.apiEndpoint}/positions`);
+            const data = await response.json();
+            
+            data.forEach(position => {
+                this.positions.set(position.symbol, {
+                    quantity: position.quantity,
+                    avgPrice: position.avg_price,
+                    currentPrice: position.current_price,
+                    pnl: (position.current_price - position.avg_price) 
+                         * position.quantity
+                });
+            });
+            
+            this.calculatePortfolioMetrics();
+        } catch (error) {
+            console.error('Error fetching positions:', error);
+        }
+    }
+
+    calculatePortfolioMetrics() {
+        let totalValue = 0;
+        let totalPnL = 0;
+        
+        this.positions.forEach(position => {
+            totalValue += position.currentPrice * position.quantity;
+            totalPnL += position.pnl;
+        });
+        
+        return { totalValue, totalPnL, roi: (totalPnL / totalValue) * 100 };
+    }
+}
+                </code></pre>
+                <aside class="notes">
+                    This JavaScript class powers our real-time portfolio monitoring dashboard. It fetches 
+                    position data every 5 seconds and calculates key metrics including total portfolio value, 
+                    P&L, and ROI. This system processes over 50,000 positions across our client base.
+                </aside>
+            </section>
+
+            <!-- Market Performance -->
+            <section>
+                <h2>Market Performance Comparison</h2>
+                <div class="formula">
+                    <h3>Excess Return Calculation</h3>
+                    <p>$$\alpha = R_p - [R_f + \beta(R_m - R_f)]$$</p>
+                    <p style="font-size: 0.8em; margin-top: 20px;">
+                        Our Portfolio Alpha: <span class="fragment highlight-green"><strong>+3.2%</strong></span>
+                    </p>
+                </div>
+                <div style="margin-top: 40px; text-align: left;">
+                    <p class="fragment">✅ Outperformed market benchmark by 3.2%</p>
+                    <p class="fragment">✅ Beta of 0.85 (Lower volatility than market)</p>
+                    <p class="fragment">✅ Consistent performance across all quarters</p>
+                </div>
+                <aside class="notes">
+                    Our alpha of 3.2% demonstrates strong active management. The beta of 0.85 indicates 
+                    we're achieving these returns with less volatility than the overall market, which is 
+                    ideal for our risk-conscious institutional clients.
+                </aside>
+            </section>
+
+            <!-- Closing Slide -->
+            <section>
+                <h1>Thank You</h1>
+                <h3>Questions & Discussion</h3>
+                <div style="margin-top: 50px;">
+                    <p>📧 Contact: <span class="email">23f2004208@ds.study.iitm.ac.in</span></p>
+                    <p style="font-size: 0.8em; margin-top: 30px;">
+                        Investor Relations: investors@company.com<br>
+                        Next Earnings Call: March 15, 2026
+                    </p>
+                </div>
+                <aside class="notes">
+                    Thank you for your attention. Key takeaways: record Q4 performance, strong risk-adjusted 
+                    returns, and strategic investments in technology and expansion. We're well-positioned for 
+                    continued growth in 2026. Now I'm happy to take your questions.
+                </aside>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/math/math.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            slideNumber: true,
+            controls: true,
+            progress: true,
+            center: true,
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+</html>
